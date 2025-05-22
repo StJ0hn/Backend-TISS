@@ -25,7 +25,7 @@ public class SpESadt {
     private String nomeDoBeneficiario;
     @Column(nullable = false)
     private Boolean indicadorDeAtendimentoARecemNascido;
-    private LocalDate dataDaSolicitação;
+    private LocalDate dataDaSolicitacao;
     @Column(length = 500)
     private String indicacaoClinica;
     private String tabelaDeReferenciaDoProcedimento;
