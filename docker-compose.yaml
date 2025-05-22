@@ -6,7 +6,6 @@ services:
     ports:
       - "8080:8080"
     environment:
-      #alterar o user, password e token
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/tiss
       - SPRING_DATASOURCE_USERNAME=tiss_user
       - SPRING_DATASOURCE_PASSWORD=tiss_password

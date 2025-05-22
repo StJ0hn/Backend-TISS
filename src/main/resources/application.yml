@@ -17,11 +17,16 @@ spring:
   jackson:
     serialization:
       indent_output: true
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: ADMIN
 
 logging:
   level:
     org.springframework: INFO
-    com.seuprojeto: DEBUG
+    com.backendtiss: DEBUG
 
 tiss:
   static-token: ${STATIC_TOKEN}

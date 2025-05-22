@@ -9,5 +9,4 @@ public class TissApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TissApplication.class, args);
 	}
-
 }
