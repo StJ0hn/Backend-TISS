@@ -12,18 +12,24 @@ import java.util.UUID;
 @Builder
 public class GuiaDeConsulta {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
     @Column(nullable = false, length = 14)
     private String registroDaClinica;
+
     @Column(nullable = false, unique = true)
     private Long numeroDaGuia;
+
     @ManyToOne
     @JoinColumn(nullable = false)
     private Paciente paciente;
+
     @ManyToOne
     @JoinColumn(nullable = false)
     private Medico medico;
+
     @ManyToOne
     @JoinColumn(nullable = false)
-    private CadastroDoConvenio convenio;
+    private Convenio convenio;
 }

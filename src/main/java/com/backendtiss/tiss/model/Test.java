@@ -18,6 +18,6 @@ public class Test {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "O compo 'test' não pode ser NULL")
+    @NotNull(message = "O campo 'test' não pode ser NULL")
     private String test;
 }

@@ -13,17 +13,30 @@ import java.time.LocalDate;
 @Builder
 public class Paciente {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
     @Column(nullable = false, unique = true, length = 14)
     private String cpf;
+
     @Column(nullable = false, length = 70)
     private String nomeCompleto;
+
     @Column(nullable = false)
     private LocalDate dataDeNascimento;
+
     @Column(nullable = false, length = 15)
     private String numeroDeTelefone;
+
     @Lob
     private String documentoComFoto;
+
     private String nomeSocial;
     private String email;
+
+    @Embedded
+    private CarteirinhaDoPlanoDeSaude carteirinhaDoPlanoDeSaude;
+
+    @Embedded
+    private Endereco endereco;
 }
