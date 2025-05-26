@@ -1,9 +1,12 @@
 package com.backendtiss.tiss.model;
 
+import com.backendtiss.tiss.model.enums.TipoDaInternacao;
+import com.backendtiss.tiss.model.enums.RegimeDaInternacao;
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.UUID;
+
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name = "guia_de_internacao")
@@ -55,14 +58,16 @@ public class GuiaDeInternacao {
     @Column(nullable = false)
     private String motivoDoAtendimento;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String regimeDaInternacao;
+    private RegimeDaInternacao regimeDaInternacao;
 
     @Column(nullable = false)
     private Integer quantidadeDeDiariasSolicitadas;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String tipoDaInternacao;
+    private TipoDaInternacao tipoDaInternacao;
 
     @Column(nullable = false)
     private String indicacaoClinicaAInternacao;

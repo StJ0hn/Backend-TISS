@@ -25,17 +25,18 @@ public class Medico {
     @Column(nullable = false)
     private LocalDate dataDeNascimento;
 
-    @Column(nullable = false, unique = true, length = 15)
+    @Column(nullable = false, unique = true, length = 9)
     private String crm;
 
     @Column(nullable = false, length = 2)
     private String estado;
 
-    @Lob
+    @Column(length = 255)
     private String documentoComFoto;
 
     @Column(nullable = false, length = 6)
     private String cboS;
 
+    @Column(nullable = false, unique = true)
     private String email;
 }

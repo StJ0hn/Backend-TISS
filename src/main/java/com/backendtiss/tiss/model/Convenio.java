@@ -5,7 +5,7 @@ import lombok.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "cadastro_do_convenio")
+@Table(name = "convenio")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
