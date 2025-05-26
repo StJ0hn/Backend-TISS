@@ -1,4 +1,3 @@
-/*
 package com.backendtiss.tiss.controller;
 
 import com.backendtiss.tiss.model.GuiaDeConsulta;
@@ -43,4 +42,3 @@ public class GuiaDeConsultaController {
         return ResponseEntity.noContent().build();
     }
 }
-*/

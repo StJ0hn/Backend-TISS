@@ -27,6 +27,8 @@ public class MedicoService {
         return medicoRepository.save(medico);
     }
 
+
+    //TODO: refazer essa lógica, refqatorando em uma funcão e usando dto
     public Medico update(UUID id, Medico medicoAtualizado) {
         Medico medico = getById(id);
 

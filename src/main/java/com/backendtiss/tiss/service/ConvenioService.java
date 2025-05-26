@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -25,9 +26,8 @@ public class ConvenioService {
         return convenioRepository.findAll();
     }
 
-    public Convenio getById(UUID id) {
-        return convenioRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Convênio não encontrado com ID: " + id));
+    public Optional<Convenio> getById(UUID id) {
+        return convenioRepository.findById(id);
     }
 
     @Transactional
@@ -47,6 +47,7 @@ public class ConvenioService {
         convenioRepository.delete(convenio);
     }
 
+    //TODO: refazer essa lógica, refqatorando em uma funcão e usando dto
     private void updateEntityFields(Convenio existing, Convenio updated) {
         if (updated.getCnpjClinica() != null) existing.setCnpjClinica(updated.getCnpjClinica());
         if (updated.getNomePlanoDeSaude() != null) existing.setNomePlanoDeSaude(updated.getNomePlanoDeSaude());

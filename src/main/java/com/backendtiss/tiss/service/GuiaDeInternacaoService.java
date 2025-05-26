@@ -27,6 +27,8 @@ public class GuiaDeInternacaoService {
         return guiaDeInternacaoRepository.save(guia);
     }
 
+
+    //TODO: refazer essa lógica, refqatorando em uma funcão e usando dto
     public GuiaDeInternacao update(UUID id, GuiaDeInternacao guiaAtualizada) {
         GuiaDeInternacao guia = getById(id);
 

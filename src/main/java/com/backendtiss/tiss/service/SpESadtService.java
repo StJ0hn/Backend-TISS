@@ -4,6 +4,10 @@ import com.backendtiss.tiss.exceptions.NotFoundException;
 import com.backendtiss.tiss.model.dtos.SpESadtDTOs.SpESadtDTO;
 import com.backendtiss.tiss.model.dtos.SpESadtDTOs.SpESadtResponseDTO;
 import com.backendtiss.tiss.model.*;
+import com.backendtiss.tiss.model.enums.CausaDaOcorrencia;
+import com.backendtiss.tiss.model.enums.TabelaDeReferenciaDoProcedimento;
+import com.backendtiss.tiss.model.enums.TipoDeAtendimento;
+import com.backendtiss.tiss.model.enums.TipoDeConsulta;
 import com.backendtiss.tiss.repository.*;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +20,8 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class SpESadtService {
+
+    //TODO: refazer toda a lógica desse service, refatorando todas as funcões e usando dto
 
     private final SpESadtRepository spESadtRepository;
     private final PacienteRepository pacienteRepository;
@@ -97,10 +103,10 @@ public class SpESadtService {
                 .gastosExtrasComMedicos(spESadt.getGastosExtrasComMedicos())
                 .gastosExtrasComFarmacos(spESadt.getGastosExtrasComFarmacos())
                 .valorTotalGeralDoProcedimento(spESadt.getValorTotalGeralDoProcedimento())
-                .tipoDeAtendimento(spESadt.getTipoDeAtendimento())
-                .causaDaOcorrencia(spESadt.getCausaDaOcorrencia())
-                .tipoDeConsulta(spESadt.getTipoDeConsulta())
-                .tabelaDeReferenciaDoProcedimento(spESadt.getTabelaDeReferenciaDoProcedimento())
+                .tipoDeAtendimento(TipoDeAtendimento.valueOf(spESadt.getTipoDeAtendimento()))
+                .causaDaOcorrencia(CausaDaOcorrencia.valueOf(spESadt.getCausaDaOcorrencia()))
+                .tipoDeConsulta(TipoDeConsulta.valueOf(spESadt.getTipoDeConsulta()))
+                .tabelaDeReferenciaDoProcedimento(TabelaDeReferenciaDoProcedimento.valueOf(spESadt.getTabelaDeReferenciaDoProcedimento()))
                 .casoEmergencia(spESadt.getCasoEmergencia())
                 .dataDeRealizacaoDoProcedimento(spESadt.getDataDeRealizacaoDoProcedimento())
                 .dataDaSolicitacao(spESadt.getDataDaSolicitacao())
@@ -124,10 +130,10 @@ public class SpESadtService {
                 .gastosExtrasComMedicos(dto.getGastosExtrasComMedicos())
                 .gastosExtrasComFarmacos(dto.getGastosExtrasComFarmacos())
                 .valorTotalGeralDoProcedimento(dto.getValorTotalGeralDoProcedimento())
-                .tipoDeAtendimento(dto.getTipoDeAtendimento())
-                .causaDaOcorrencia(dto.getCausaDaOcorrencia())
-                .tipoDeConsulta(dto.getTipoDeConsulta())
-                .tabelaDeReferenciaDoProcedimento(dto.getTabelaDeReferenciaDoProcedimento())
+                .tipoDeAtendimento(String.valueOf(dto.getTipoDeAtendimento()))
+                .causaDaOcorrencia(String.valueOf(dto.getCausaDaOcorrencia()))
+                .tipoDeConsulta(String.valueOf(dto.getTipoDeConsulta()))
+                .tabelaDeReferenciaDoProcedimento(String.valueOf(dto.getTabelaDeReferenciaDoProcedimento()))
                 .casoEmergencia(dto.getCasoEmergencia())
                 .dataDeRealizacaoDoProcedimento(dto.getDataDeRealizacaoDoProcedimento())
                 .dataDaSolicitacao(dto.getDataDaSolicitacao())
@@ -153,10 +159,10 @@ public class SpESadtService {
         if (dto.getGastosExtrasComMedicos() != null) spESadt.setGastosExtrasComMedicos(dto.getGastosExtrasComMedicos());
         if (dto.getGastosExtrasComFarmacos() != null) spESadt.setGastosExtrasComFarmacos(dto.getGastosExtrasComFarmacos());
         if (dto.getValorTotalGeralDoProcedimento() != null) spESadt.setValorTotalGeralDoProcedimento(dto.getValorTotalGeralDoProcedimento());
-        if (dto.getTipoDeAtendimento() != null) spESadt.setTipoDeAtendimento(dto.getTipoDeAtendimento());
-        if (dto.getCausaDaOcorrencia() != null) spESadt.setCausaDaOcorrencia(dto.getCausaDaOcorrencia());
-        if (dto.getTipoDeConsulta() != null) spESadt.setTipoDeConsulta(dto.getTipoDeConsulta());
-        if (dto.getTabelaDeReferenciaDoProcedimento() != null) spESadt.setTabelaDeReferenciaDoProcedimento(dto.getTabelaDeReferenciaDoProcedimento());
+        if (dto.getTipoDeAtendimento() != null) spESadt.setTipoDeAtendimento(String.valueOf(dto.getTipoDeAtendimento()));
+        if (dto.getCausaDaOcorrencia() != null) spESadt.setCausaDaOcorrencia(String.valueOf(dto.getCausaDaOcorrencia()));
+        if (dto.getTipoDeConsulta() != null) spESadt.setTipoDeConsulta(String.valueOf(dto.getTipoDeConsulta()));
+        if (dto.getTabelaDeReferenciaDoProcedimento() != null) spESadt.setTabelaDeReferenciaDoProcedimento(String.valueOf(dto.getTabelaDeReferenciaDoProcedimento()));
         if (dto.getCasoEmergencia() != null) spESadt.setCasoEmergencia(dto.getCasoEmergencia());
         if (dto.getDataDeRealizacaoDoProcedimento() != null) spESadt.setDataDeRealizacaoDoProcedimento(dto.getDataDeRealizacaoDoProcedimento());
         if (dto.getDataDaSolicitacao() != null) spESadt.setDataDaSolicitacao(dto.getDataDaSolicitacao());

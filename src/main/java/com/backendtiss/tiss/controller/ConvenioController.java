@@ -1,4 +1,3 @@
-/*
 package com.backendtiss.tiss.controller;
 
 import com.backendtiss.tiss.model.Convenio;
@@ -8,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -23,8 +23,8 @@ public class ConvenioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Convenio> getById(@PathVariable UUID id) {
-        return ResponseEntity.ok(convenioService.getById(id));
+    public Optional<Convenio> getById(@PathVariable UUID id) {
+        return convenioService.getById(id);
     }
 
     @PostMapping
@@ -43,4 +43,4 @@ public class ConvenioController {
         return ResponseEntity.noContent().build();
     }
 }
-*/
+

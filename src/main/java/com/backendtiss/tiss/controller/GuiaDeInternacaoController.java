@@ -1,4 +1,3 @@
-/*
 package com.backendtiss.tiss.controller;
 
 import com.backendtiss.tiss.model.GuiaDeInternacao;
@@ -41,4 +40,3 @@ public class GuiaDeInternacaoController {
         guiaDeInternacaoService.delete(id);
     }
 }
-*/

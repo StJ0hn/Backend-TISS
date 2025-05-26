@@ -47,6 +47,7 @@ public class GuiaDeConsultaService {
         guiaDeConsultaRepository.delete(guia);
     }
 
+    //TODO: refazer essa lógica, refqatorando em uma funcão e usando dto
     private void updateEntityFields(GuiaDeConsulta existing, GuiaDeConsulta updated) {
         if (updated.getRegistroDaClinica() != null) {
             existing.setRegistroDaClinica(updated.getRegistroDaClinica());

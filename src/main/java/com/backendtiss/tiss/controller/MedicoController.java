@@ -1,4 +1,3 @@
-/*
 package com.backendtiss.tiss.controller;
 
 import com.backendtiss.tiss.model.Medico;
@@ -41,4 +40,3 @@ public class MedicoController {
         medicoService.delete(id);
     }
 }
-*/
